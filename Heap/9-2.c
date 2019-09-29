@@ -1,3 +1,4 @@
+// max heap에서 임의의 원소를 삭제하는 함수를 다음과 같이 작성하시오
 #include <stdio.h>
 #define MAX_ELEMENT 100
 
