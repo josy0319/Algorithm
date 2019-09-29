@@ -1,3 +1,5 @@
+//k-nary tree(kì§„ íŠ¸ë¦¬)ë¥¼ ì´ìš©í•˜ì—¬ max heapì„ ë§Œë“¤ê³  ì´ë¥¼ ì´ìš©í•˜ì—¬ ì •ìˆ˜ë¥¼ ì •ë ¬í•˜ì‹œì˜¤.
+
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -21,7 +23,7 @@ void init(HeapType* h)
 //parent index of l=(l+k-2)/k
 
 void insert_max_heap(HeapType* h, element item, int k){
-	//k-max-heap(ÀÚ½ÄÀÌ k°³ÀÎ ¿ÏÀü k-nary tree¸¦ ÀÌ¿ëÇÑ heap))ÀÌ µÇµµ·Ï ÀÚ·á¸¦          //ÀÔ·Â
+	//k-max-heap(ìì‹ì´ kê°œì¸ ì™„ì „ k-nary treeë¥¼ ì´ìš©í•œ heap))ì´ ë˜ë„ë¡ ìë£Œë¥¼          //ì…ë ¥
 	int i = ++(h->heap_size);
 	while ((i != 1) && (item.key > h->heap[(i + k - 2) / k].key)) {
 		h->heap[i] = h->heap[(i + k - 2) / k];
@@ -30,7 +32,7 @@ void insert_max_heap(HeapType* h, element item, int k){
 	h->heap[i] = item;
 }
 int max_num(element heap[], int start, int number){
-	//heapÀÇ start¿¡¼­ number °³ ¸¸Å­ÀÇ ¿ø¼Ò Áß °¡Àå key°¡ Å« ¿ø¼ÒÀÇ index¸¦ ¹İ          //È¯ÇÏ´Ù.
+	//heapì˜ startì—ì„œ number ê°œ ë§Œí¼ì˜ ì›ì†Œ ì¤‘ ê°€ì¥ keyê°€ í° ì›ì†Œì˜ indexë¥¼ ë°˜          //í™˜í•˜ë‹¤.
 	int max = heap[start].key;
 	int index=start;
 	for (int i = start, k = 0; k < number; i++, k++){
@@ -42,7 +44,7 @@ int max_num(element heap[], int start, int number){
 	return index;
 }
 element delete_max_heap(HeapType* h, int k){
-	//k-max-heap¿¡¼­ °¡Àå key°¡ Å« ¿ø¼Ò¸¦ ¹İÈ¯ÇÑ´Ù. ¹İÈ¯ ÈÄ k-max-heapÀ» À¯Áö               //ÇÑ´Ù. À§ÀÇ max_numÇÔ¼ö¸¦ ÀÌ¿ë
+	//k-max-heapì—ì„œ ê°€ì¥ keyê°€ í° ì›ì†Œë¥¼ ë°˜í™˜í•œë‹¤. ë°˜í™˜ í›„ k-max-heapì„ ìœ ì§€               //í•œë‹¤. ìœ„ì˜ max_numí•¨ìˆ˜ë¥¼ ì´ìš©
 	element item, temp;
 	item = h->heap[1];
 	temp = h->heap[(h->heap_size)--];
@@ -62,7 +64,7 @@ element delete_max_heap(HeapType* h, int k){
 }
 
 void heap_sort(element a[], int n, int k)
-{ //k-max-heapÀ» ÀÌ¿ëÇÏ¿© Á¤·ÄÇÑ´Ù.
+{ //k-max-heapì„ ì´ìš©í•˜ì—¬ ì •ë ¬í•œë‹¤.
 	int i;
 	HeapType h;
 	init(&h);
